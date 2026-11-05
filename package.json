@@ -1,0 +1,14 @@
+{
+  "name": "notes-api-2324802010114",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hello Cloud API for the TDMU cloud computing lab",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bài 1 | Hello Cloud</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172522;
+      --muted: #52635f;
+      --paper: #f5f4ed;
+      --surface: #fffefa;
+      --line: #cbd4cb;
+      --green: #245d4b;
+      --lime: #dce99a;
+      --coral: #c85c40;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.55 Georgia, "Times New Roman", serif;
+    }
+    main { width: min(100% - 40px, 980px); margin: 0 auto; padding: 48px 0 64px; }
+    header { border-top: 8px solid var(--green); padding: 22px 0 30px; }
+    .eyebrow { color: var(--coral); font: 700 12px/1.3 Arial, sans-serif; text-transform: uppercase; }
+    h1 { margin: 8px 0 4px; font-size: clamp(36px, 7vw, 64px); line-height: 1.02; }
+    h2 { margin: 0 0 16px; font-size: 25px; }
+    header p { margin: 0; color: var(--muted); font: 16px/1.5 Arial, sans-serif; }
+    section { padding: 28px 0; border-top: 1px solid var(--line); }
+    .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font: 14px/1.45 Arial, sans-serif; }
+    th, td { min-width: 170px; padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    thead th { color: white; background: var(--green); }
+    tbody th { width: 28%; min-width: 190px; color: var(--ink); background: #e8eee5; }
+    tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+    .fill { color: var(--coral); font-weight: 700; }
+    ol { margin: 0; padding: 0; list-style: none; counter-reset: nist; }
+    li { counter-increment: nist; display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); }
+    li::before { content: "0" counter(nist); color: var(--coral); font: 700 14px/1.6 Arial, sans-serif; }
+    li strong { display: block; }
+    li p { margin: 3px 0 0; color: var(--muted); font: 14px/1.5 Arial, sans-serif; }
+    footer { padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font: 13px/1.5 Arial, sans-serif; }
+    @media (max-width: 560px) {
+      main { width: min(100% - 28px, 980px); padding-top: 28px; }
+      th, td { min-width: 145px; padding: 11px; }
+      tbody th { min-width: 165px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Điện toán đám mây · Bài 1</div>
+      <h1>Hello Cloud</h1>
+      <p>Đối chiếu môi trường lập trình cá nhân và máy ảo Codespaces qua một API đang chạy.</p>
+    </header>
+
+    <section aria-labelledby="comparison-title">
+      <h2 id="comparison-title">Máy cá nhân và Codespace</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Tiêu chí</th><th scope="col">Máy cá nhân</th><th scope="col">Codespace</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Thời gian đến khi chạy được <code>node -v</code></th><td class="fill">[Sinh viên điền thời gian từ máy cá nhân]</td><td class="fill">≈ 1–2 phút sau khi tạo Codespace</td></tr>
+            <tr><th scope="row">Số CPU, RAM</th><td class="fill">[Sinh viên điền: ví dụ 8 CPU / 16 GB]</td><td class="fill">2 CPU / 7.8 GB</td></tr>
+            <tr><th scope="row">Hệ điều hành</th><td class="fill">[Sinh viên điền hệ điều hành máy cá nhân]</td><td class="fill">Linux 6.8.0-1064-azure</td></tr>
+            <tr><th scope="row">Truy cập từ thiết bị khác</th><td class="fill">[Sinh viên mô tả cách truy cập từ điện thoại hoặc máy khác]</td><td class="fill">Port 3000 Public → URL dạng https://&lt;tên&gt;-3000.app.github.dev; sau đó đổi về Private</td></tr>
+            <tr><th scope="row">Chi phí, đo bằng gì</th><td class="fill">[Sinh viên mô tả chi phí vận hành máy cá nhân: điện, thời gian, bảo trì]</td><td class="fill">Core-hours trong Settings → Billing → Usage</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="nist-title">
+      <h2 id="nist-title">Năm đặc tính NIST trong bài lab</h2>
+      <ol>
+        <li><div><strong>Tự phục vụ theo yêu cầu</strong><p>Tạo Codespace từ giao diện GitHub và có môi trường sẵn sàng mà không cần yêu cầu quản trị viên cấp máy.</p></div></li>
+        <li><div><strong>Truy cập mạng rộng</strong><p>Mở API qua cổng được chuyển tiếp; khi đặt Public, thử URL từ điện thoại rồi chuyển lại Private.</p></div></li>
+        <li><div><strong>Gộp tài nguyên</strong><p>Codespaces cấp môi trường từ hạ tầng dùng chung của nhà cung cấp; trường host giúp quan sát máy đang phục vụ phiên hiện tại.</p></div></li>
+        <li><div><strong>Co giãn nhanh</strong><p>Tạo hoặc dừng Codespace theo nhu cầu, thay vì chuẩn bị và duy trì riêng một máy lập trình cố định.</p></div></li>
+        <li><div><strong>Dịch vụ đo lường được</strong><p>Đối chiếu mức sử dụng core-giờ trong Billing Usage với tài nguyên và thời gian dùng dịch vụ.</p></div></li>
+      </ol>
+    </section>
+
+    <footer>Thay các ô trong ngoặc vuông bằng số liệu đo thực tế của bạn trước khi gửi bài. Các giá trị Codespace ở cột bên phải đã được kiểm tra trực tiếp từ API.</footer>
+  </main>
+</body>
+</html>
